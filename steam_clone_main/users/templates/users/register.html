@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css">
+        <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.1/dist/jquery.slim.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"></script>
+        {% load static %}
+        <link rel="stylesheet" href="{% static 'css/custom_styles.css' %}">
+    </head>
+    <body style="background-color: #1b2838; color: #c7d5e0;">
+        <div class="container mt-5">
+            <div class="card p-4" style="background-color: #2a475e; border-radius: 10px; box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.5);">
+                <h2 class="text-center text-light">Criar Conta</h2>
+                <form method="POST" enctype="multipart/form-data">
+                    {% csrf_token %}
+                    {{ form.as_p }}
+                    <div class="text-center">
+                        <button type="submit" class="btn btn-success btn-block">Registrar</button>
+                    </div>
+                </form>
+                <div class="text-center mt-3">
+                    <a href="{% url 'login' %}" class="text-light">Já tem uma conta? Faça login.</a>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>
